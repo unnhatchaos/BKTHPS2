@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV BÙI VĂN NHẤT</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrapper {
+      width: 1200px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    header {
+      background: linear-gradient(135deg, #4e8f77, #3c6150);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px;
+      flex-wrap: wrap;
+      position: relative;
+      border-bottom: 4px solid #2c4237;
+    }
+
+    .avatar-container {
+      display: flex;
+      align-items: center;
+      min-width: 300px;
+    }
+
+    header img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 30px;
+      border: 4px solid white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info h1 {
+      margin: 0;
+      font-size: 38px;
+    }
+
+    .info p {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+
+    #slogan {
+      font-style: italic;
+    }
+
+    #changeSloganBtn, #changeBgBtn {
+      background-color: white;
+      color: #2d3e34;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      position: absolute;
+      right: 20px;
+    }
+
+    #changeSloganBtn:hover, #changeBgBtn:hover {
+      background-color: #dddddd;
+    }
+
+    #changeSloganBtn {
+      bottom: 70px;
+    }
+
+    #changeBgBtn {
+      bottom: 20px;
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        background-color: #f1f1f1;
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+        flex-wrap: wrap;
+    }
+
+    .contact-info p {
+        margin: 0;
+        font-size: 15px;
+    }
+
+    .container {
+      display: flex;
+      flex-grow: 1;
+      align-items: stretch; /* Đảm bảo hai cột bằng chiều cao */
+    }
+
+
+
+    .left-column {
+      width: 60%;
+      background-color: #f1f1f1;
+      padding: 20px;
+      box-sizing: border-box;
+      border-right: 1px solid #ddd;
+      align-self: none; /* Đảm bảo cột trái không kéo dài */
+    }
+
+    .menu-item {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      padding: 12px;
+      background-color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.05);
+      text-transform: ; /* Dùng uppercase để viết hoa*/
+    }
+
+    .menu-item:hover, .menu-item.active {
+      background-color: #e0f7ea;
+      box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+      border-color: #4e8f77;
+    }
+
+    .menu-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #2d3e34;
+    }
+
+    .left-column,
+    .right-column {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      align-self: stretch; /* Cho phép chiều cao mở rộng tự nhiên */
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f1f1f1;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .contact-info i {
+        margin-right: 8px;
+        color: var(--header-bg-secondary);
+    }
+
+    .menu-item i {
+        font-size: 28px; /* bạn có thể tăng lên 24px, 28px tùy thích */
+        margin-right: 8px;
+    }
+
+    .content-section {
+      display: none;
+      background-color: #e6f2ef;
+      border-left: 30px solid #4e8f77;
+      border-radius: 20px;
+      padding: 16px 24px;
+      margin-bottom: 30px;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    .content-section ul {
+      padding-left: 30px;
+    }
+
+    .content-section li {
+      line-height: 2; /* hoặc giá trị 2 nếu muốn giãn rộng hơn */
+    }
+
+    .content-section > div {
+        background-color: rgba(255,255,255,0.1);
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+  </style>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  integrity="sha512-..."
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="avatar-container">
+        <img id="avatar" src="Avatar.jpg" alt="Ảnh cá nhân" />
+        <div class="info">
+          <h1>BÙI VĂN NHẤT</h1>
+          <p>Sinh viên ngành CNTT</p>
+          <p id="slogan">"We can do it"</p>
+        </div>
+      </div>
+      <button id="changeSloganBtn">Đổi slogan</button>
+      <button id="changeBgBtn">Đổi nền header</button>
+    </header>
+
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> Mail: nhatbv220995@ondnu.edu.vn</p>
+      <p><i class="fas fa-phone-alt"></i> Phone: 097 222 0995</p>
+      <p><i class="fas fa-map-marker-alt"></i> Address: Khu NOXH Phú Lãm, phường Phú Lương, Tp. Hà Nội</p>
+    </div>
+
+    <div class="container">
+      <div class="left-column">
+        <div class="menu-item" onclick="showContent('gioithieu')">
+          <strong><i class="fas fa-user"></i> GIỚI THIỆU BẢN THÂN </strong>
+          <p>Năng động - sáng tạo - đam mê công nghệ</p>
+        </div>
+        <div class="menu-item" onclick="showContent('muctieu')">
+          <strong><i class="fas fa-bullseye"></i> MỤC TIÊU NGHỀ NGHIỆP </strong>
+          <p>Trở thành chuyên gia trong lĩnh vực công nghệ</p>
+        </div>
+        <div class="menu-item" onclick="showCombinedSection()">
+          <strong><i class="fas fa-graduation-cap"></i> HỌC VẤN VÀ KỸ NĂNG</strong>
+          <p>Sinh viên năm nhất trường Đại học Đại Nam</p>
+        </div>
+        <div class="menu-item" onclick="showCombinedSection()">
+          <strong><i class="fas fa-briefcase"></i> KINH NGHIỆM VÀ THÀNH TÍCH</strong>
+          <p>Tham gia nhiều dự án về phần mềm</p>
+          <p>Best performance 6 tháng liên tiếp trong dự án</p>
+        </div>
+        <div class="menu-item" onclick="showContent('sothich')">
+          <strong><i class="fas fa-heart"></i> SỞ THÍCH</strong>
+          <p>Du lịch - Bóng đá - Bơi lội</p>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div id="gioithieu" class="content-section">
+          <h2>Giới thiệu bản thân</h2>
+          <ul>
+            <li> Năng động, ham học hỏi, luôn đổi mới tích cực</li>
+            <li> Khả năng chịu áp lực và tinh thần trách nhiệm cao.</li>
+            <li> Đam mê tìm hiểu khoa học công nghệ và đổi mới sáng tạo </li>
+          </ul>
+
+        </div>
+        <div id="muctieu" class="content-section active">
+          <h2>Mục tiêu nghề nghiệp</h2>
+          <ul>
+            <li> Học hỏi và cập nhật những công nghệ mới. </li>
+            <li> Thuần thục và hiểu biết chuyên sâu về lĩnh vực của bản thân. </li>
+            <li> Trong 3 năm tới, trở thành quản lý nhóm. </li>
+          </ul>
+        </div>
+        <div id="combined-section" class="content-section">
+            <div style="background-color: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h3>Học vấn</h3>
+            <ul>
+            <li>Trường Đại học Thủy lợi</li>
+                Kỹ sư Công trình Xây dựng dân dụng & Công nghiệp
+            <li>Trường Đại học Đại Nam</li>
+                Sinh viên năm nhất ngành Công nghệ thông tin.
+            </ul>
+            </div>
+            <div style="background-color: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px;">
+            <h3>Kỹ năng</h3>
+            <ul>
+            <li>Ngôn ngữ: HTML, CSS, JavaScript, Python</li>
+            <li>Framework: ReactJS, Node.js</li>
+            <li>Công cụ: Figma, Git, VS Code</li>
+            <li>Kỹ năng mềm: Làm việc nhóm, thuyết trình, lập kế hoạch và quản lý thời gian</li>
+            </ul>
+            </div>
+        </div>
+        <div id="combined-section" class="content-section">
+            <div style="background-color: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h3>Kinh nghiệm</h3>
+            <ul>
+            <li>3 năm kiểm thử cho các dự án của công ty Hàn Quốc, Việt Nam, Nhật Bản</li>
+            <li>Dưới 1 năm thực hiện dự án Web-App </li>
+            </ul>
+            </div>
+            <div style="background-color: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px;">
+            <h3>Thành tích</h3>
+            <ul>
+            <li>Best monthly performance trong 6 tháng liên tiếp</li>
+            </ul>
+            </div>
+        </div>
+        <div id="sothich" class="content-section">
+          <h2>Sở thích</h2>
+          <ul>
+            <li>Du lịch - bơi lội</li>
+            <li>Xem bóng đá các giải đấu hàng đầu châu ÂU và thế giới</li>
+            <li>Chơi game cùng bạn bè tăng khả năng phản xạ và trực quan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer> © 2025 Bùi Văn Nhất. Thiết kế bởi chính bạn. </footer>
+  </div>
+
+  <script>
+    function showContent(id) {
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+
+    function showCombinedSection() {
+     document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+     document.getElementById('combined-section').classList.add('active');
+    }
+
+    const slogans = [
+      '"We can do it"',
+      '"Think positive, live positive"',
+      '"You only live once"'
+    ];
+    let sloganIndex = 0;
+    document.getElementById('changeSloganBtn').addEventListener('click', () => {
+      sloganIndex = (sloganIndex + 1) % slogans.length;
+      document.getElementById('slogan').textContent = slogans[sloganIndex];
+    });
+
+    const bgColors = ['#4e8f77', '#9656a1', '#f58a07', '#2c6e91', '#d94343'];
+    let bgIndex = 0;
+    document.getElementById('changeBgBtn').addEventListener('click', () => {
+      bgIndex = (bgIndex + 1) % bgColors.length;
+      document.querySelector('header').style.background = `linear-gradient(135deg, ${bgColors[bgIndex]}, #3c6150)`;
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuItems = document.querySelectorAll(".menu-item");
+        const sections = document.querySelectorAll(".content-section");
+
+        menuItems.forEach((item, index) => {
+            item.addEventListener("click", function () {
+            // 1. Ẩn toàn bộ section
+            sections.forEach(section => section.classList.remove("active"));
+            // 2. Gỡ active khỏi menu trước đó
+            menuItems.forEach(item => item.classList.remove("active"));
+            // 3. Hiển thị section tương ứng và đánh dấu active
+            sections[index].classList.add("active");
+            item.classList.add("active");
+            });
+        });
+    });    
+  </script>
+</body>
+</html>
